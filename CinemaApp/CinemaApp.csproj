@@ -164,8 +164,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppStrings.pl.Designer.cs">
-      <DependentUpon>AppStrings.pl.resx</DependentUpon>
+    <Compile Include="AppStrings.Designer.cs">
+      <DependentUpon>AppStrings.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -185,11 +185,6 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AppStrings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AppStrings.resx</DependentUpon>
-    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -287,10 +282,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AppStrings.pl.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppStrings.pl.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="AppStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppStrings.Designer.cs</LastGenOutput>

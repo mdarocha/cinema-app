@@ -29,9 +29,13 @@ namespace CinemaApp.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(ResourceType = typeof(AppStrings), Name = "Name")]
+        [StringLength(500)]
         public string Name { get; set; }
 
         [Required]
+        [Display(ResourceType = typeof(AppStrings), Name = "Surname")]
+        [StringLength(500)]
         public string Surname { get; set; }
 
         [Required]

@@ -61,7 +61,7 @@ namespace CinemaApp {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu About.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Informacje.
         /// </summary>
         public static string About {
             get {
@@ -79,7 +79,16 @@ namespace CinemaApp {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Create a new account.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień hasło.
+        /// </summary>
+        public static string ChangePassword {
+            get {
+                return ResourceManager.GetString("ChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Stwórz nowe konto.
         /// </summary>
         public static string CreateNewAccount {
             get {
@@ -88,7 +97,16 @@ namespace CinemaApp {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Home Page.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zapomniałeś hasła?.
+        /// </summary>
+        public static string ForgotPasswordQuestion {
+            get {
+                return ResourceManager.GetString("ForgotPasswordQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Strona główna.
         /// </summary>
         public static string HomePage {
             get {
@@ -97,7 +115,7 @@ namespace CinemaApp {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Login.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zaloguj się.
         /// </summary>
         public static string Login {
             get {
@@ -106,7 +124,7 @@ namespace CinemaApp {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Logout.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wyloguj się.
         /// </summary>
         public static string Logout {
             get {
@@ -115,7 +133,7 @@ namespace CinemaApp {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Manage.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zarządzaj kontem.
         /// </summary>
         public static string ManageAccount {
             get {
@@ -124,7 +142,7 @@ namespace CinemaApp {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Movies.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Repertuar.
         /// </summary>
         public static string MoviesList {
             get {
@@ -133,11 +151,38 @@ namespace CinemaApp {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Register.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Imię.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Historia zamówień.
+        /// </summary>
+        public static string OrderHistory {
+            get {
+                return ResourceManager.GetString("OrderHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zarejestruj się.
         /// </summary>
         public static string Register {
             get {
                 return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwisko.
+        /// </summary>
+        public static string Surname {
+            get {
+                return ResourceManager.GetString("Surname", resourceCulture);
             }
         }
     }
