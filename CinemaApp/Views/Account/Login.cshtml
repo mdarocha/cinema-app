@@ -1,7 +1,7 @@
 ﻿@using CinemaApp.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Zaloguj";
+    ViewBag.Title = AppStrings.Login;
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -11,7 +11,7 @@
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Zaloguj się za pomocą konta lokalnego.</h4>
+                <h4>@AppStrings.Login</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
@@ -38,22 +38,17 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Zaloguj" class="btn btn-default" />
+                        <input type="submit" value="@AppStrings.Login" class="btn btn-default" />
                     </div>
                 </div>
                 <p>
-                    @Html.ActionLink("Zarejestruj się jako nowy użytkownik", "Register")
+                    @Html.ActionLink(AppStrings.Register, "Register")
                 </p>
                 @* Włącz to ustawienie po włączeniu potwierdzenia konta dla funkcji resetowania hasła
                     <p>
                         @Html.ActionLink("Nie pamiętasz hasła?", "ForgotPassword")
                     </p>*@
             }
-        </section>
-    </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
     </div>
 </div>
