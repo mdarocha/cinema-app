@@ -11,9 +11,9 @@
 </head>
 <body>
    @Html.Partial("_NavbarPartial")
-   <div class="container body-content">
+   <div class="container body-content mt-4">
         @RenderBody()
-        <footer>
+        <footer class="mt-4">
             <p>&copy; @DateTime.Now.Year — @AppStrings.AppName</p>
         </footer>
     </div>

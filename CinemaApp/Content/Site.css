@@ -2,7 +2,11 @@
     background-color: #2a2a2e;
 }
 
-h1, h2, h4, label, span, footer, hr, dt {
+h1, h2, h4, label, footer, hr, dt {
     color: #ffffec;
     border-color: #ffffec;
+}
+
+.invalid-feedback {
+    display: initial;
 }

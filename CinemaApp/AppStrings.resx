@@ -118,30 +118,45 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>About</value>
+    <value>Informacje</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>ExampleCinema</value>
   </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Zmień hasło</value>
+  </data>
   <data name="CreateNewAccount" xml:space="preserve">
-    <value>Create a new account</value>
+    <value>Stwórz nowe konto</value>
+  </data>
+  <data name="ForgotPasswordQuestion" xml:space="preserve">
+    <value>Zapomniałeś hasła?</value>
   </data>
   <data name="HomePage" xml:space="preserve">
-    <value>Home Page</value>
+    <value>Strona główna</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Login</value>
+    <value>Zaloguj się</value>
   </data>
   <data name="Logout" xml:space="preserve">
-    <value>Logout</value>
+    <value>Wyloguj się</value>
   </data>
   <data name="ManageAccount" xml:space="preserve">
-    <value>Manage</value>
+    <value>Zarządzaj kontem</value>
   </data>
   <data name="MoviesList" xml:space="preserve">
-    <value>Movies</value>
+    <value>Repertuar</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="OrderHistory" xml:space="preserve">
+    <value>Historia zamówień</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Register</value>
+    <value>Zarejestruj się</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Nazwisko</value>
   </data>
 </root>
