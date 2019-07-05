@@ -1,15 +1,16 @@
 ﻿@using Microsoft.AspNet.Identity
+@using CinemaApp.Resources
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "form-inline" }))
     {
     @Html.AntiForgeryToken()
     <a class="nav-item nav-link mr-2 mr-md-4" href="@Url.Action("Index", "Manage")">@User.Identity.GetUserName()</a>
-    <a class="btn btn-sm btn-outline-light" href="javascript:document.getElementById('logoutForm').submit()">@AppStrings.Logout</a>
+    <a class="btn btn-sm btn-outline-light" href="javascript:document.getElementById('logoutForm').submit()">@Strings.Logout</a>
    }
 }
 else
 {
-    <a id="registerLink" class="nav-item nav-link" href="@Url.Action("Register", "Account")">@AppStrings.Register</a>
-    <a id="loginLink" class="nav-item nav-link" href="@Url.Action("Login", "Account")">@AppStrings.Login</a>
+    <a id="registerLink" class="nav-item nav-link" href="@Url.Action("Register", "Account")">@Strings.Register</a>
+    <a id="loginLink" class="nav-item nav-link" href="@Url.Action("Login", "Account")">@Strings.Login</a>
 }

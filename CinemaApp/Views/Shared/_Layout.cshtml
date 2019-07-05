@@ -1,10 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using CinemaApp.Resources
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title — @AppStrings.AppName</title>
+    <title>@ViewBag.Title — @Strings.AppName</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -14,7 +16,7 @@
    <div class="container body-content mt-4">
         @RenderBody()
         <footer class="mt-4">
-            <p>&copy; @DateTime.Now.Year — @AppStrings.AppName</p>
+            <p>&copy; @DateTime.Now.Year — @Strings.AppName</p>
         </footer>
     </div>
 
