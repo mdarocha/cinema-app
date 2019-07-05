@@ -2,9 +2,18 @@
     background-color: #2a2a2e;
 }
 
-h1, h2, h4, label, footer, hr, dt {
+h1, h2, h4, h5, label, footer, hr, dt {
     color: #ffffec;
     border-color: #ffffec;
+}
+
+.movieEntry {
+
+}
+
+.movieEntry > div {
+    color: #ffffec;
+    text-align: center;
 }
 
 .invalid-feedback {

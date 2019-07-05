@@ -14,7 +14,24 @@ namespace CinemaApp.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            return View();
+            var days = new List<DateTime>();
+
+            var today = DateTime.Now.Date;
+            days.Add(today);
+
+            for(int i = 0; i < 5; i++)
+            {
+                today = today.AddDays(1);
+                days.Add(today);
+            }
+
+            var movies = storage.Movies.ToList();
+            var viewModel = new MovieListViewModel
+            {
+                movies = movies,
+                days = days
+            };
+            return View(viewModel);
         }
     }
 }
