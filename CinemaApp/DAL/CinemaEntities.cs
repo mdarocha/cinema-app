@@ -14,5 +14,6 @@ namespace CinemaApp.Models
         }
 
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Showing> Showings { get; set; }
     }
 }

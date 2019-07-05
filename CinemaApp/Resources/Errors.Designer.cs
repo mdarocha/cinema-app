@@ -22,7 +22,7 @@ namespace CinemaApp.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Errors {
+    public class Errors {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace CinemaApp.Resources {
         /// Zwraca buforowane wystąpienie ResourceManager używane przez tę klasę.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CinemaApp.Resources.Errors", typeof(Errors).Assembly);
@@ -51,7 +51,7 @@ namespace CinemaApp.Resources {
         ///   przypadków przeszukiwania zasobów za pomocą tej klasy zasobów wymagającej zdefiniowania typu.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,25 +63,43 @@ namespace CinemaApp.Resources {
         /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Hasła różnią się.
         /// </summary>
-        internal static string DifferentPasswords {
+        public static string DifferentPasswords {
             get {
                 return ResourceManager.GetString("DifferentPasswords", resourceCulture);
             }
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Błąd.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu {0} musi zawierać co najmniej {2} znaków.
         /// </summary>
-        internal static string MinimumChars {
+        public static string MinimumChars {
             get {
                 return ResourceManager.GetString("MinimumChars", resourceCulture);
             }
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wystąpił błąd.
+        /// </summary>
+        public static string RequestError {
+            get {
+                return ResourceManager.GetString("RequestError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu {0} jest wymagane.
         /// </summary>
-        internal static string Required {
+        public static string Required {
             get {
                 return ResourceManager.GetString("Required", resourceCulture);
             }
@@ -90,7 +108,7 @@ namespace CinemaApp.Resources {
         /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu {0} jest wymagany.
         /// </summary>
-        internal static string RequiredMaleForm {
+        public static string RequiredMaleForm {
             get {
                 return ResourceManager.GetString("RequiredMaleForm", resourceCulture);
             }
