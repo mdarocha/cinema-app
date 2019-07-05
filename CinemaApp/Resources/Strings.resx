@@ -126,8 +126,14 @@
   <data name="ChangePassword" xml:space="preserve">
     <value>Zmień hasło</value>
   </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Potwierdź hasło</value>
+  </data>
   <data name="CreateNewAccount" xml:space="preserve">
     <value>Stwórz nowe konto</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mail</value>
   </data>
   <data name="ForgotPasswordQuestion" xml:space="preserve">
     <value>Zapomniałeś hasła?</value>
@@ -153,8 +159,14 @@
   <data name="OrderHistory" xml:space="preserve">
     <value>Historia zamówień</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Hasło</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Zarejestruj się</value>
+  </data>
+  <data name="RememberMeQuestion" xml:space="preserve">
+    <value>Zapamiętać cię?</value>
   </data>
   <data name="SendLinkAction" xml:space="preserve">
     <value>Wyślij link emailem</value>

@@ -1,76 +1,78 @@
-﻿using System.Collections.Generic;
+﻿using CinemaApp.Resources;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CinemaApp.Models
 {
     public class ForgotViewModel
     {
-        [Required]
-        [Display(Name = "Adres e-mail")]
+        [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="RequiredMaleForm")]
+        [Display(ResourceType = typeof(Strings), Name = "Email")]
+        [EmailAddress]
         public string Email { get; set; }
     }
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "Adres e-mail")]
+        [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="RequiredMaleForm")]
+        [Display(ResourceType = typeof(Strings), Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="Required")]
         [DataType(DataType.Password)]
-        [Display(Name = "Hasło")]
+        [Display(ResourceType = typeof(Strings), Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "Zapamiętać Cię?")]
+        [Display(ResourceType = typeof(Strings), Name = "RememberMeQuestion")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
     {
-        [Required]
-        [Display(ResourceType = typeof(AppStrings), Name = "Name")]
+        [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="Required")]
+        [Display(ResourceType = typeof(Strings), Name = "Name")]
         [StringLength(500)]
         public string Name { get; set; }
 
-        [Required]
-        [Display(ResourceType = typeof(AppStrings), Name = "Surname")]
+        [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="Required")]
+        [Display(ResourceType = typeof(Strings), Name = "Surname")]
         [StringLength(500)]
         public string Surname { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="RequiredMaleForm")]
         [EmailAddress]
-        [Display(Name = "Adres e-mail")]
+        [Display(ResourceType = typeof(Strings), Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "{0} musi zawierać co najmniej następującą liczbę znaków: {2}.", MinimumLength = 6)]
+        [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="Required")]
+        [StringLength(100, ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="MinimumChars", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Hasło")]
+        [Display(ResourceType = typeof(Strings), Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Potwierdź hasło")]
-        [Compare("Password", ErrorMessage = "Hasło i jego potwierdzenie są niezgodne.")]
+        [Display(ResourceType = typeof(Strings), Name = "ConfirmPassword")]
+        [Compare("Password", ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName="DifferentPasswords")]
         public string ConfirmPassword { get; set; }
     }
 
     public class ResetPasswordViewModel
     {
-        [Required]
+        [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="RequiredMaleForm")]
         [EmailAddress]
-        [Display(Name = "Adres e-mail")]
+        [Display(ResourceType = typeof(Strings), Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "{0} musi zawierać co najmniej następującą liczbę znaków: {2}.", MinimumLength = 6)]
+        [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="Required")]
+        [StringLength(100, ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="MinimumChars", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Hasło")]
+        [Display(ResourceType = typeof(Strings), Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Potwierdź hasło")]
-        [Compare("Password", ErrorMessage = "Hasło i jego potwierdzenie są niezgodne.")]
+        [Display(ResourceType = typeof(Strings), Name = "ConfirmPassword")]
+        [Compare("Password", ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName="DifferentPasswords")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }
@@ -78,9 +80,9 @@ namespace CinemaApp.Models
 
     public class ForgotPasswordViewModel
     {
-        [Required]
+        [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="RequiredMaleForm")]
         [EmailAddress]
-        [Display(Name = "Adres e-mail")]
+        [Display(ResourceType = typeof(Strings), Name = "Email")]
         public string Email { get; set; }
     }
 }
