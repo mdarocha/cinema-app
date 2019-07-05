@@ -79,6 +79,15 @@ namespace CinemaApp {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Create a new account.
+        /// </summary>
+        public static string CreateNewAccount {
+            get {
+                return ResourceManager.GetString("CreateNewAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Home Page.
         /// </summary>
         public static string HomePage {
@@ -102,6 +111,24 @@ namespace CinemaApp {
         public static string Logout {
             get {
                 return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Manage.
+        /// </summary>
+        public static string ManageAccount {
+            get {
+                return ResourceManager.GetString("ManageAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Movies.
+        /// </summary>
+        public static string MoviesList {
+            get {
+                return ResourceManager.GetString("MoviesList", resourceCulture);
             }
         }
         

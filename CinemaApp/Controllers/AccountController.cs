@@ -92,6 +92,16 @@ namespace CinemaApp.Controllers
         }
 
         //
+        // POST: /Account/LogOff
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOff()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
+        }
+
+        //
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
@@ -108,7 +118,13 @@ namespace CinemaApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Name = model.Name,
+                    Surname = model.Surname
+                };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

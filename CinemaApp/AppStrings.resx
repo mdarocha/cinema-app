@@ -123,6 +123,9 @@
   <data name="AppName" xml:space="preserve">
     <value>ExampleCinema</value>
   </data>
+  <data name="CreateNewAccount" xml:space="preserve">
+    <value>Create a new account</value>
+  </data>
   <data name="HomePage" xml:space="preserve">
     <value>Home Page</value>
   </data>
@@ -131,6 +134,12 @@
   </data>
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
+  </data>
+  <data name="ManageAccount" xml:space="preserve">
+    <value>Manage</value>
+  </data>
+  <data name="MoviesList" xml:space="preserve">
+    <value>Movies</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
