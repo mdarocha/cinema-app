@@ -10,7 +10,7 @@
     <h4>@AppStrings.Login</h4>
     <hr />
     <div class="form-group">
-        @Html.ValidationSummary(true, "", new { @class = "invalid-feedback" })
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "" })

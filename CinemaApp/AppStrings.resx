@@ -156,6 +156,9 @@
   <data name="Register" xml:space="preserve">
     <value>Zarejestruj się</value>
   </data>
+  <data name="SendLinkAction" xml:space="preserve">
+    <value>Wyślij link emailem</value>
+  </data>
   <data name="Surname" xml:space="preserve">
     <value>Nazwisko</value>
   </data>

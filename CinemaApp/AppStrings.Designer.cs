@@ -178,6 +178,15 @@ namespace CinemaApp {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wyślij link emailem.
+        /// </summary>
+        public static string SendLinkAction {
+            get {
+                return ResourceManager.GetString("SendLinkAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwisko.
         /// </summary>
         public static string Surname {
