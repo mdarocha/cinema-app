@@ -120,8 +120,14 @@
   <data name="DifferentPasswords" xml:space="preserve">
     <value>Hasła różnią się</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Błąd</value>
+  </data>
   <data name="MinimumChars" xml:space="preserve">
     <value>{0} musi zawierać co najmniej {2} znaków</value>
+  </data>
+  <data name="RequestError" xml:space="preserve">
+    <value>Wystąpił błąd</value>
   </data>
   <data name="Required" xml:space="preserve">
     <value>{0} jest wymagane</value>

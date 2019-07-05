@@ -1,23 +1,30 @@
 ﻿@using CinemaApp.Models
 @using CinemaApp.Resources
-@model MovieListViewModel
+@model IEnumerable<DateTime>
 
 @{ 
     ViewBag.Title = Strings.MoviesList;
 }
 
 <div class="row mb-3">
-@foreach(var day in Model.days)
+@{ int i = 0; }
+@foreach (var day in Model)
 {
-    <div class="btn btn-outline-info mr-1 mr-md-3 mt-1">@day.DayOfWeek</div>
+    @Ajax.ActionLink(day.DayOfWeek.ToString(), "List", new { day = i },
+            new AjaxOptions
+            {
+                UpdateTargetId = "movieList",
+                InsertionMode = InsertionMode.Replace,
+                HttpMethod = "GET"
+            },
+            new { @class = "btn btn-outline-info mr-1 mr-md-3 mt-1" })
+    i++;
 }
 </div>
-<div class="row">
-@foreach(var movie in Model.movies)
-{
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4 movieEntry">
-        <img class="img-fluid" src="@movie.PosterUrl" />
-        <div>@movie.Title</div>
-    </div>
-}
+<div class="row" id="movieList">
+    @{Html.RenderAction("List");}
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/ajax");
+}

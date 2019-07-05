@@ -24,14 +24,23 @@ namespace CinemaApp.Controllers
                 today = today.AddDays(1);
                 days.Add(today);
             }
+            return View(days);
+        }
 
-            var movies = storage.Movies.ToList();
-            var viewModel = new MovieListViewModel
+        // GET: List?day=
+        public ActionResult List(int day = 0)
+        {
+            try
             {
-                movies = movies,
-                days = days
-            };
-            return View(viewModel);
+                var date = DateTime.Now.Date.AddDays(day);
+
+                var showings = storage.Showings.Include("Movie")
+                        .Where(s => s.Time.Year == date.Year && s.Time.Month == date.Month && s.Time.Day == date.Day);
+                return PartialView("ShowingListPartial", showings);
+            } catch
+            {
+                return View("Error");
+            }
         }
     }
 }

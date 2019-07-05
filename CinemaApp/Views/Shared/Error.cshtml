@@ -1,9 +1,10 @@
-﻿@model System.Web.Mvc.HandleErrorInfo
+﻿@using CinemaApp.Resources
+@model System.Web.Mvc.HandleErrorInfo
 
 @{
     ViewBag.Title = "Błąd";
 }
 
-<h1 class="text-danger">Błąd.</h1>
-<h2 class="text-danger">Wystąpił błąd podczas przetwarzania żądania.</h2>
-
+<h1 class="text-danger">@Errors.Error</h1>
+<h2 class="text-danger">@Errors.RequestError</h2>
+<img class="img-fluid" src="~/Images/error.jpg" style="max-width: 500px;" />
