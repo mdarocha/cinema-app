@@ -13,6 +13,7 @@ namespace CinemaApp.Controllers
     [Authorize]
     public class ManageController : Controller
     {
+        #region Constructors
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -49,25 +50,25 @@ namespace CinemaApp.Controllers
                 _userManager = value;
             }
         }
-
+        #endregion
         //
         // GET: /Manage/Index
-        public async Task<ActionResult> Index(ManageMessageId? message)
+        public ActionResult Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Zmieniono hasło."
                 : message == ManageMessageId.Error ? "Wystąpił błąd."
                 : "";
 
-            var userId = User.Identity.GetUserId();
+            var user = GetUser();
+
             var model = new IndexViewModel
             {
-                HasPassword = HasPassword(),
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
-                Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                Name = user.Name,
+                Surname = user.Surname,
+                Email = user.Email
             };
+
             return View(model);
         }
 
@@ -124,7 +125,7 @@ namespace CinemaApp.Controllers
 
         private bool HasPassword()
         {
-            var user = UserManager.FindById(User.Identity.GetUserId());
+            var user = GetUser();
             if (user != null)
             {
                 return user.PasswordHash != null;
@@ -132,14 +133,9 @@ namespace CinemaApp.Controllers
             return false;
         }
 
-        private bool HasPhoneNumber()
+        private ApplicationUser GetUser()
         {
-            var user = UserManager.FindById(User.Identity.GetUserId());
-            if (user != null)
-            {
-                return user.PhoneNumber != null;
-            }
-            return false;
+            return UserManager.FindById(User.Identity.GetUserId());
         }
 
         public enum ManageMessageId

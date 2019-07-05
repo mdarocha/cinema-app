@@ -1,22 +1,15 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "form-inline" }))
     {
     @Html.AntiForgeryToken()
-
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Witaj, " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">@AppStrings.Logout</a></li>
-    </ul>
-    }
+    <a class="nav-item nav-link mr-2 mr-md-4" href="@Url.Action("Index", "Manage")">@User.Identity.GetUserName()</a>
+    <a class="btn btn-sm btn-outline-light" href="javascript:document.getElementById('logoutForm').submit()">@AppStrings.Logout</a>
+   }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink(AppStrings.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink(AppStrings.Login, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+    <a id="registerLink" class="nav-item nav-link" href="@Url.Action("Register", "Account")">@AppStrings.Register</a>
+    <a id="loginLink" class="nav-item nav-link" href="@Url.Action("Login", "Account")">@AppStrings.Login</a>
 }

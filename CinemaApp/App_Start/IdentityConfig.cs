@@ -23,15 +23,6 @@ namespace CinemaApp
         }
     }
 
-    /*public class SmsService : IIdentityMessageService
-    {
-        public Task SendAsync(IdentityMessage message)
-        {
-            // Dołącz tutaj usługę wiadomości SMS, aby wysłać wiadomość SMS.
-            return Task.FromResult(0);
-        }
-    }*/
-
     // Skonfiguruj menedżera użytkowników aplikacji używanego w tej aplikacji. Interfejs UserManager jest zdefiniowany w produkcie ASP.NET Identity i jest używany przez aplikację.
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {

@@ -1,21 +1,16 @@
 ﻿@model CinemaApp.Models.IndexViewModel
 @{
-    ViewBag.Title = "Zarządzaj";
+    ViewBag.Title = AppStrings.ManageAccount;
 }
 
 <h2>@ViewBag.Title.</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h4>Zmień ustawienia konta</h4>
+    <h4>@Model.Name @Model.Surname</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>Hasło:</dt>
-        <dd>
-            @if (Model.HasPassword)
-            {
-                @Html.ActionLink("Zmień hasło", "ChangePassword")
-            }
-        </dd>
+        <dd>@Html.ActionLink("Zmień hasło", "ChangePassword")</dd>
    </dl>
 </div>
