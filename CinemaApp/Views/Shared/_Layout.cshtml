@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title — @Strings.AppName</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
    @Html.Partial("_NavbarPartial")
@@ -19,7 +17,6 @@
             <p>&copy; @DateTime.Now.Year — @Strings.AppName</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/libs")
     @RenderSection("scripts", required: false)
 </body>
