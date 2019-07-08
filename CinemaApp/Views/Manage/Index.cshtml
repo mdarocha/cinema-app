@@ -1,12 +1,14 @@
-﻿@model CinemaApp.Models.IndexViewModel
+﻿@using CinemaApp.Resources
+
+@model CinemaApp.Models.IndexViewModel
 @{
-    ViewBag.Title = AppStrings.ManageAccount;
+    ViewBag.Title = Strings.ManageAccount;
 }
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
     <h4>@Model.Name @Model.Surname</h4>
     <hr />
 
-    @Html.ActionLink(AppStrings.ChangePassword, "ChangePassword", null, new { @class = "btn btn-primary" })
-    @Html.ActionLink(AppStrings.OrderHistory, "Index", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink(Strings.ChangePassword, "ChangePassword", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink(Strings.OrderHistory, "Index", null, new { @class = "btn btn-primary" })
 </div>

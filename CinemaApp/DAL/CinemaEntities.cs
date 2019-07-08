@@ -3,17 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CinemaApp.Models
 {
-    public class CinemaEntities : DbContext
+    public class CinemaDbContext : IdentityDbContext<CinemaUser>
     {
-        public CinemaEntities() : base("CinemaDbConnection")
+        public CinemaDbContext() : base("CinemaDbConnection")
         {
 
         }
 
+        public static CinemaDbContext Create()
+        {
+            return new CinemaDbContext();
+        }
+
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Showing> Showings { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
     }
 }

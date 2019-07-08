@@ -133,7 +133,7 @@ namespace CinemaApp.Controllers
             return false;
         }
 
-        private ApplicationUser GetUser()
+        private CinemaUser GetUser()
         {
             return UserManager.FindById(User.Identity.GetUserId());
         }

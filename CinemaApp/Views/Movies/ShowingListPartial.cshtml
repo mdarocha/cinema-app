@@ -5,7 +5,7 @@
 {
     <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4 movieEntry">
         <img class="img-fluid" src="@Url.Content(showing.Movie.PosterUrl)" />
-        <div>@showing.Movie.Title</div>
+        <div>@Html.ActionLink(showing.Movie.Title, "Index", "ReservationFlow", new { id = showing.ID }, null)</div>
         <div>@showing.Time</div>
     </div>
 }

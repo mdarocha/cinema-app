@@ -9,7 +9,7 @@ namespace CinemaApp.Controllers
 {
     public class MoviesController : Controller
     {
-        CinemaEntities storage = new CinemaEntities();
+        CinemaDbContext storage = new CinemaDbContext();
 
         // GET: Movies
         public ActionResult Index()
@@ -20,17 +20,17 @@ namespace CinemaApp.Controllers
         // GET: List?day=
         public ActionResult List(int day = 0)
         {
-            try
-            {
+//            try
+//            {
                 var date = DateTime.Now.Date.AddDays(day);
 
                 var showings = storage.Showings.Include("Movie")
                         .Where(s => s.Time.Year == date.Year && s.Time.Month == date.Month && s.Time.Day == date.Day);
                 return PartialView("ShowingListPartial", showings);
-            } catch
+/*            } catch
             {
                 return View("Error");
-            }
+            }*/
         }
     }
 }

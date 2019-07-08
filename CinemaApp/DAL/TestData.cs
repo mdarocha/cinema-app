@@ -6,9 +6,9 @@ using CinemaApp.Models;
 
 namespace CinemaApp.DAL
 {
-    public class TestData : System.Data.Entity.DropCreateDatabaseIfModelChanges<CinemaEntities>
+    public class TestData : System.Data.Entity.DropCreateDatabaseIfModelChanges<CinemaDbContext>
     {
-        protected override void Seed(CinemaEntities context)
+        protected override void Seed(CinemaDbContext context)
         {
             for (int i = 0; i < 10; i++)
             {
@@ -24,12 +24,16 @@ namespace CinemaApp.DAL
                 var date = DateTime.Now;
                 for (int j = 0; j < 5; j++)
                 {
-                    var showing = new Showing
+                    context.Showings.Add(new Showing
                     {
                         Movie = movie,
                         Time = date,
-                    };
-                    context.Showings.Add(showing);
+                    });
+                    context.Showings.Add(new Showing
+                    {
+                        Movie = movie,
+                        Time = date.AddHours(2),
+                    });
                     date = date.AddDays(1);
                 }
             }
