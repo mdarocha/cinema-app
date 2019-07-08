@@ -14,7 +14,7 @@ namespace CinemaApp.Models
         public int ShowingID { get; set; }
         public virtual Showing Showing { get; set; }
 
-        public string CinemaUserId { get; set; }
+        public string CinemaUserID { get; set; }
         public virtual CinemaUser CinemaUser { get; set; }
 
         public DateTime ReservationDate { get; set; }
