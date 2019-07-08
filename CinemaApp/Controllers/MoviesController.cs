@@ -14,17 +14,7 @@ namespace CinemaApp.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            var days = new List<DateTime>();
-
-            var today = DateTime.Now.Date;
-            days.Add(today);
-
-            for(int i = 0; i < 5; i++)
-            {
-                today = today.AddDays(1);
-                days.Add(today);
-            }
-            return View(days);
+            return View();
         }
 
         // GET: List?day=

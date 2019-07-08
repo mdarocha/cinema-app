@@ -1,24 +1,31 @@
-﻿@using CinemaApp.Models
-@using CinemaApp.Resources
-@model IEnumerable<DateTime>
-
+﻿@using CinemaApp.Resources
+@using System.Globalization
 @{ 
     ViewBag.Title = Strings.MoviesList;
 }
 
-<div class="row mb-3">
-@{ int i = 0; }
-@foreach (var day in Model)
+<div class="row mb-3 mr-1 ml-1">
+@{
+    var date = DateTime.Now.Date;
+    const int num_of_buttons = 7;
+}
+
+@for(int i = 0; i < num_of_buttons; i++)
 {
-    @Ajax.ActionLink(day.DayOfWeek.ToString(), "List", new { day = i },
+    var day_of_week = date.DayOfWeek;
+    var day_name = DateTimeFormatInfo.CurrentInfo.GetDayName(day_of_week);
+    day_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(day_name);
+
+    @Ajax.ActionLink(day_name, "List", new { day = i },
             new AjaxOptions
             {
                 UpdateTargetId = "movieList",
                 InsertionMode = InsertionMode.Replace,
                 HttpMethod = "GET"
             },
-            new { @class = "btn btn-outline-info mr-1 mr-md-3 mt-1" })
-    i++;
+            new { @class = "btn btn-outline-info mr-1 mr-md-3 mt-1" });
+
+    date = date.AddDays(1);
 }
 </div>
 <div class="row" id="movieList">
