@@ -1,0 +1,12 @@
+﻿@using CinemaApp.Resources
+@using CinemaApp.Models
+@model Showing
+
+@{ 
+    ViewBag.Title = Strings.Reservation;
+}
+
+<div class="row">
+    <h1>@Model.Movie.Title</h1>
+    <h2>@Model.Time.ToString()</h2>
+</div>

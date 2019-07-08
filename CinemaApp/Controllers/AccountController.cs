@@ -118,7 +118,7 @@ namespace CinemaApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser {
+                var user = new CinemaUser {
                     UserName = model.Email,
                     Email = model.Email,
                     Name = model.Name,

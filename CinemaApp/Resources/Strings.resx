@@ -168,6 +168,9 @@
   <data name="RememberMeQuestion" xml:space="preserve">
     <value>Zapamiętać cię?</value>
   </data>
+  <data name="Reservation" xml:space="preserve">
+    <value>Rezerwacja</value>
+  </data>
   <data name="SendLinkAction" xml:space="preserve">
     <value>Wyślij link emailem</value>
   </data>
