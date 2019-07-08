@@ -7,13 +7,16 @@ h1, h2, h4, h5, label, footer, hr, dt {
     border-color: #ffffec;
 }
 
-.movieEntry {
+.movie-entry > div, h1, h2, h3 {
+    color: #ffffec;
+    text-align: left;
+}
+
+.showing-button {
 
 }
 
-.movieEntry > div {
-    color: #ffffec;
-    text-align: center;
+.showing-time {
 }
 
 .invalid-feedback {

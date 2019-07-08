@@ -24,9 +24,22 @@ namespace CinemaApp.Controllers
 //            {
                 var date = DateTime.Now.Date.AddDays(day);
 
-                var showings = storage.Showings.Include("Movie")
-                        .Where(s => s.Time.Year == date.Year && s.Time.Month == date.Month && s.Time.Day == date.Day);
-                return PartialView("ShowingListPartial", showings);
+                var movies = storage.Showings.Include("Movie")
+                    .Where(s => s.Time.Year == date.Year && s.Time.Month == date.Month && s.Time.Day == date.Day)
+                    .GroupBy(s => s.Movie).Select(g => g.ToList()).ToList();
+
+                List<ShowingViewModel> list_movies = new List<ShowingViewModel>();
+                foreach(var movie in movies)
+                {
+                    list_movies.Add(new ShowingViewModel()
+                    {
+                        Movie = movie[0].Movie,
+                        Showings = movie,
+                    });
+                }
+
+                return PartialView("ShowingListPartial", list_movies);
+
 /*            } catch
             {
                 return View("Error");

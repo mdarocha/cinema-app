@@ -1,11 +1,24 @@
 ﻿@using CinemaApp.Models
-@model IEnumerable<Showing>
+@model IEnumerable<ShowingViewModel>
 
-@foreach(var showing in Model)
+@foreach(var movieShowing in Model)
 {
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4 movieEntry">
-        <img class="img-fluid" src="@Url.Content(showing.Movie.PosterUrl)" />
-        <div>@Html.ActionLink(showing.Movie.Title, "Index", "ReservationFlow", new { id = showing.ID }, null)</div>
-        <div>@showing.Time</div>
+    <div class="movie-entry container m-1 mb-5">
+        <div class="row">
+            <img class="img-fluid col-5 col-md-3" src="@Url.Content(movieShowing.Movie.PosterUrl)" />
+            <div class="col">
+                <h3>@movieShowing.Movie.Title</h3>
+                <div>@movieShowing.Movie.Description</div>
+            </div>
+        </div>
+        <div class="m-2 mt-md-3">
+            @foreach(var showing in movieShowing.Showings)
+            {
+                <a href="@Url.Action("Index", "ReservationFlow", new { id = showing.ID })"
+                   class="showing-button btn btn-info mr-2 mb-1">
+                    <span class="h4 showing-time">@showing.Time.ToString("HH : mm")</span><br />
+                    <span class="h6 showing-type">Napisy, 2D</span></a>
+            }
+         </div>
     </div>
 }
