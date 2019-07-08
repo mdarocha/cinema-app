@@ -1,5 +1,4 @@
 ﻿@using Microsoft.AspNet.Identity
-@using CinemaApp.Resources
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "form-inline" }))
