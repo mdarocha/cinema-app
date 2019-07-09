@@ -20,7 +20,10 @@ namespace CinemaApp.Controllers
             if (showing == null)
                 return View("Error");
 
-            return View(showing);
+            var viewModel = new PlaceSelectorViewModel();
+            viewModel.Showing = showing;
+
+            return View("PlaceSelector", viewModel);
         }
     }
 }
