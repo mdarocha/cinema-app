@@ -8,7 +8,7 @@ namespace CinemaApp.Models
     public class ReservationFlowViewModel
     {
         public Showing Showing { get; set; }
-        public List<Place> TakenPlaces { get; set; }
+        public List<PlacePosition> TakenPlaces { get; set; }
 
         public string PostUrl { get; set; }
 
