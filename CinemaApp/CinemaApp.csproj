@@ -237,7 +237,7 @@
     <Compile Include="Models\Place.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Showing.cs" />
-    <Compile Include="Models\ViewModels\PlaceSelectorViewModel.cs" />
+    <Compile Include="Models\ViewModels\ReservationFlowViewModel.cs" />
     <Compile Include="Models\ViewModels\ShowingViewModel.cs" />
     <Compile Include="Resources\Strings.Designer.cs">
       <DependentUpon>Strings.resx</DependentUpon>
@@ -366,7 +366,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_NavbarPartial.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
-    <Content Include="Views\ReservationFlow\PlaceSelector.cshtml" />
+    <Content Include="Views\ReservationFlow\Index.cshtml" />
     <Content Include="Views\Movies\ShowingListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>

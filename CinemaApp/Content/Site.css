@@ -34,6 +34,8 @@ footer {
     max-height: 30px;
 
     width: 100%;
+
+    text-align: center;
 }
 
 .room-seat::after {
@@ -44,12 +46,45 @@ footer {
 }
 
 .seat-free {
-    background-color: green;
+    background-color: #228113;
+    box-shadow: 0 0 3px 1px rgba(21, 194, 114, 0);
+    transition: background-color, box-shadow 0.1s ease-in-out 0s;
+    color: rgba(0,0,0,0);
 }
+
+    .seat-free:hover {
+        background-color: #2ba718;
+        box-shadow: 0 0 3px 1px rgba(21, 194, 114, 0.4);
+        cursor: pointer;
+        color: black;
+    }
+
+.seat-taken {
+    background-color: #717171;
+    color: rgba(0,0,0,0);
+}
+
+.seat-selected {
+    background-color: #cc1212;
+    color: #ccc;
+    box-shadow: 0 0 3px 1px rgba(239, 165, 157, 0.5);
+    transition: background-color, box-shadow 0.1s ease-in-out 0s;
+}
+
+    .seat-selected:hover {
+        background-color: #ff0d0d;
+        box-shadow: 0 0 5px 2px rgba(228, 30, 30, 0.8);
+        cursor: pointer;
+    }
 
 .room-row {
     display: flex;
 
     align-items: center;
     justify-content: center;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

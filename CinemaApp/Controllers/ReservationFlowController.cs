@@ -12,18 +12,41 @@ namespace CinemaApp.Controllers
     {
         CinemaDbContext storage = new CinemaDbContext();
 
-        // GET: ReservationFlow
+
+        // GET: ReservationFlow/id
         [Authorize]
-        public ActionResult Index(int id)
+        public ActionResult Index(int? id)
         {
-            var showing = storage.Showings.Include("Movie").Single(s => s.ID == id);
-            if (showing == null)
+            if (!id.HasValue)
                 return View("Error");
 
-            var viewModel = new PlaceSelectorViewModel();
-            viewModel.Showing = showing;
+            Showing showing;
+            try
+            {
+                showing = storage.Showings.Include("Movie").Single(s => s.ID == id);
+            } catch (Exception e)
+            {
+                return View("Error");
+            }
 
-            return View("PlaceSelector", viewModel);
+
+            var viewModel = new ReservationFlowViewModel
+            {
+                Showing = showing,
+                TakenPlaces = new List<Place> { },
+
+                PostUrl = Url.Action("MakeReservation")
+            };
+
+            return View(viewModel);
+        }
+
+        // POST: ReservationFlow/MakeReservation
+        [Authorize]
+        [HttpPost]
+        public ActionResult MakeReservation(ReservationFlowViewModel model, List<Place> places)
+        {
+            return Json(new { model, places });
         }
     }
 }

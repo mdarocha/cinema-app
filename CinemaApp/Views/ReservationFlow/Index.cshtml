@@ -1,10 +1,11 @@
-﻿@model Showing
+﻿@model ReservationFlowViewModel
 
 @{ 
     ViewBag.Title = Strings.Reservation;
 }
 
 <div id="place-selector" class="content">
+    @Html.React("Room", Model)
 </div>
 
 @section Scripts {
@@ -12,4 +13,5 @@
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 
     @Scripts.Render("~/Scripts/cinema/place_selector.jsx")
+    @Html.ReactInitJavaScript()
 }
