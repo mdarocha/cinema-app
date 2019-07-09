@@ -6,9 +6,17 @@ nav {
     box-shadow: 0 2px 10px 1px rgba(22, 140, 179, 0.7);
 }
 
-h1, h2, h4, h5, label, hr, dt {
+h1, h2, h4, h5, h6, label, hr, dt, tr, tbody, table {
     color: #ffffec;
     border-color: #ffffec;
+}
+
+.table tr {
+    border-top: 1px solid #dee2e6;
+}
+
+.table td {
+    border-top: none;
 }
 
 footer {

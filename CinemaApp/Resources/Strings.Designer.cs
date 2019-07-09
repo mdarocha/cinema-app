@@ -79,6 +79,15 @@ namespace CinemaApp.Resources {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Anuluj.
+        /// </summary>
+        public static string CancelReservation {
+            get {
+                return ResourceManager.GetString("CancelReservation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień hasło.
         /// </summary>
         public static string ChangePassword {
@@ -178,7 +187,7 @@ namespace CinemaApp.Resources {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Historia zamówień.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Historia rezerwacji.
         /// </summary>
         public static string OrderHistory {
             get {

@@ -10,6 +10,8 @@ namespace CinemaApp.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
+
+        public List<Reservation> Reservations { get; set; }
     }
 
     public class ChangePasswordViewModel

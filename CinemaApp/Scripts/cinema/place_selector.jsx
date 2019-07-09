@@ -22,16 +22,15 @@ class Room extends React.Component {
     }
 
     handleClick(pos) {
-        if (this.state.selected.length < this.props.MaxTickets) {
-            if (!this.state.selected.find(p => p.x === pos.x && p.y === pos.y)) {
-                this.setState(prev => ({
-                    selected: [...prev.selected, pos]
-                }));
-            } else {
-                this.setState(prev => ({
-                    selected: prev.selected.filter(p => p.x !== pos.x || p.y !== pos.y)
-                }));
-            }
+        if ((this.state.selected.length < this.props.MaxTickets)
+          && (!this.state.selected.find(p => p.x === pos.x && p.y === pos.y))) {
+            this.setState(prev => ({
+                selected: [...prev.selected, pos]
+            }));
+        } else {
+            this.setState(prev => ({
+                selected: prev.selected.filter(p => p.x !== pos.x || p.y !== pos.y)
+            }));
         }
     }
 
