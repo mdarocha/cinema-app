@@ -225,6 +225,11 @@
   <ItemGroup>
     <Compile Include="App_Start\ReactConfig.cs" />
     <Compile Include="Controllers\ReservationFlowController.cs" />
+    <Compile Include="Migrations\201907081051124_InitialCreate.cs" />
+    <Compile Include="Migrations\201907081051124_InitialCreate.Designer.cs">
+      <DependentUpon>201907081051124_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Place.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Showing.cs" />
@@ -368,6 +373,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201907081051124_InitialCreate.resx">
+      <DependentUpon>201907081051124_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Strings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
