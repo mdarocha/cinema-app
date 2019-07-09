@@ -123,6 +123,9 @@
   <data name="AppName" xml:space="preserve">
     <value>ExampleCinema</value>
   </data>
+  <data name="CancelReservation" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Zmień hasło</value>
   </data>
@@ -157,7 +160,7 @@
     <value>Imię</value>
   </data>
   <data name="OrderHistory" xml:space="preserve">
-    <value>Historia zamówień</value>
+    <value>Historia rezerwacji</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Hasło</value>

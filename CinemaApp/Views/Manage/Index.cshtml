@@ -2,11 +2,35 @@
 @{
     ViewBag.Title = Strings.ManageAccount;
 }
-<p class="text-success">@ViewBag.StatusMessage</p>
 <div>
+    <p class="text-success">@ViewBag.StatusMessage</p>
     <h4>@Model.Name @Model.Surname</h4>
     <hr />
 
     @Html.ActionLink(Strings.ChangePassword, "ChangePassword", null, new { @class = "btn btn-primary" })
-    @Html.ActionLink(Strings.OrderHistory, "Index", null, new { @class = "btn btn-primary" })
+</div>
+<div class="reservation-history mt-3">
+    <h5 class="">@Strings.OrderHistory</h5>
+    <div class="">
+        <table class="mt-3 table">
+            <tbody>
+            @foreach(var reservation in Model.Reservations)
+            {
+                <tr class="d-flex flex-row">
+                    <td class="">@reservation.Showing.Movie.Title</td>
+                    <td>@reservation.Showing.Time.ToString("d MMM - HH:mm")</td>
+                    <td class="">
+                        @foreach (var place in reservation.Places)
+                        {
+                            <span>@place.x,@place.y</span>
+                        }
+                    </td>
+                    <td class="ml-auto">
+                        <a href="#" class="btn btn-sm btn-outline-danger">@Strings.CancelReservation</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
 </div>

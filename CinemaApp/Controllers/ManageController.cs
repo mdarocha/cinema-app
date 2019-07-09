@@ -13,6 +13,8 @@ namespace CinemaApp.Controllers
     [Authorize]
     public class ManageController : Controller
     {
+        CinemaDbContext storage = new CinemaDbContext();
+
         #region Constructors
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -62,11 +64,14 @@ namespace CinemaApp.Controllers
 
             var user = GetUser();
 
+            var reservations = storage.Reservations.Include("Places").Include("Showing").Where(r => r.CinemaUserID == user.Id).ToList();
+
             var model = new IndexViewModel
             {
                 Name = user.Name,
                 Surname = user.Surname,
-                Email = user.Email
+                Email = user.Email,
+                Reservations = reservations
             };
 
             return View(model);
