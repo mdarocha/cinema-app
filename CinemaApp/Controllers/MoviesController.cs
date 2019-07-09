@@ -20,8 +20,8 @@ namespace CinemaApp.Controllers
         // GET: List?day=
         public ActionResult List(int day = 0)
         {
-//            try
-//            {
+            try
+            {
                 var date = DateTime.Now.Date.AddDays(day);
 
                 var movies = storage.Showings.Include("Movie")
@@ -40,10 +40,10 @@ namespace CinemaApp.Controllers
 
                 return PartialView("ShowingListPartial", list_movies);
 
-/*            } catch
+            } catch
             {
                 return View("Error");
-            }*/
+            }
         }
     }
 }
