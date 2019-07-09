@@ -229,10 +229,15 @@
     <Compile Include="Migrations\201907081051124_InitialCreate.Designer.cs">
       <DependentUpon>201907081051124_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907091103474_PlaceModel.cs" />
+    <Compile Include="Migrations\201907091103474_PlaceModel.Designer.cs">
+      <DependentUpon>201907091103474_PlaceModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Place.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Showing.cs" />
+    <Compile Include="Models\ViewModels\PlaceSelectorViewModel.cs" />
     <Compile Include="Models\ViewModels\ShowingViewModel.cs" />
     <Compile Include="Resources\Strings.Designer.cs">
       <DependentUpon>Strings.resx</DependentUpon>
@@ -361,7 +366,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_NavbarPartial.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
-    <Content Include="Views\ReservationFlow\Index.cshtml" />
+    <Content Include="Views\ReservationFlow\PlaceSelector.cshtml" />
     <Content Include="Views\Movies\ShowingListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -375,6 +380,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201907081051124_InitialCreate.resx">
       <DependentUpon>201907081051124_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907091103474_PlaceModel.resx">
+      <DependentUpon>201907091103474_PlaceModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Strings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
