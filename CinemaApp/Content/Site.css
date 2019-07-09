@@ -2,9 +2,17 @@
     background-color: #2a2a2e;
 }
 
-h1, h2, h4, h5, label, footer, hr, dt {
+nav {
+    box-shadow: 0 2px 10px 1px rgba(22, 140, 179, 0.7);
+}
+
+h1, h2, h4, h5, label, hr, dt {
     color: #ffffec;
     border-color: #ffffec;
+}
+
+footer {
+    color: #656565;
 }
 
 .movie-entry > div, h1, h2, h3 {
@@ -12,13 +20,36 @@ h1, h2, h4, h5, label, footer, hr, dt {
     text-align: left;
 }
 
-.showing-button {
-
-}
-
-.showing-time {
-}
-
 .invalid-feedback {
     display: initial;
+}
+
+.room-seat {
+    margin: 2px;
+
+    display: inline-block;
+    position: relative;
+
+    max-width: 30px;
+    max-height: 30px;
+
+    width: 100%;
+}
+
+.room-seat::after {
+    content: "";
+    height: 0;
+    padding-bottom: 100%;
+    display: block;
+}
+
+.seat-free {
+    background-color: green;
+}
+
+.room-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 }

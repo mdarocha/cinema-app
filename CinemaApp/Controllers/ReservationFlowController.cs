@@ -17,6 +17,9 @@ namespace CinemaApp.Controllers
         public ActionResult Index(int id)
         {
             var showing = storage.Showings.Include("Movie").Single(s => s.ID == id);
+            if (showing == null)
+                return View("Error");
+
             return View(showing);
         }
     }

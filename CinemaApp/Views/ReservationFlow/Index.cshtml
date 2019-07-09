@@ -4,7 +4,12 @@
     ViewBag.Title = Strings.Reservation;
 }
 
-<div class="row">
-    <h1>@Model.Movie.Title</h1>
-    <h2>@Model.Time.ToString()</h2>
+<div id="place-selector" class="content">
 </div>
+
+@section Scripts {
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    @Scripts.Render("~/Scripts/cinema/place_selector.jsx")
+}
