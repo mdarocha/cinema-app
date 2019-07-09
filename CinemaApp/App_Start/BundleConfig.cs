@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Optimization;
+using System.Web.Optimization.React;
 
 namespace CinemaApp
 {
@@ -19,7 +20,10 @@ namespace CinemaApp
             bundles.Add(new ScriptBundle("~/bundles/ajax").Include(
                         "~/Scripts/jquery.unobtrusive-ajax.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new BabelBundle("~/react/reservations").Include(
+                        "~/Script/cinema/place_selector.jsx"));
+
+            bundles.Add(new StyleBundle("~/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
