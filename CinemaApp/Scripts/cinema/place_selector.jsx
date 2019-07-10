@@ -41,7 +41,9 @@ class Room extends React.Component {
             const model = this.props
             const places = this.state.selected;
 
-            $.post(url, { 'model': model, 'places': places }, (data) => console.log(data));
+            $.post(url, { 'model': model, 'places': places }, (data) => {
+                window.location.replace(data.redirect_url);
+            });
         }
     }
 

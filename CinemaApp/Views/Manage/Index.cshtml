@@ -17,8 +17,8 @@
             @foreach(var reservation in Model.Reservations)
             {
                 <tr class="d-flex flex-row">
-                    <td class="">@reservation.Showing.Movie.Title</td>
-                    <td>@reservation.Showing.Time.ToString("d MMM - HH:mm")</td>
+                    <td class="font-weight-bold">@reservation.Showing.Movie.Title</td>
+                    <td>@reservation.Showing.Time.ToString("HH:mm, dddd dd MMM")</td>
                     <td class="">
                         @foreach (var place in reservation.Places)
                         {

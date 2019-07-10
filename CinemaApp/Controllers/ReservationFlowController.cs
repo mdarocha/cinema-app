@@ -61,7 +61,7 @@ namespace CinemaApp.Controllers
             storage.Reservations.Add(reservation);
             storage.SaveChanges();
 
-            return Json(new { success = true });
+            return Json(new { success = true, redirect_url = Url.Action("Index", "Home") });
         }
     }
 }
