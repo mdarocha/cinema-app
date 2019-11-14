@@ -9,8 +9,10 @@
         return (
             <div
                 className={styles}
-                onClick={this.props.handler}
-            >{this.props.pos.x}</div>);
+                seat-number={this.props.pos.x}
+                seat-row={this.props.pos.x === 0 ? this.props.pos.y : ""}
+                onClick={this.props.handler}>
+            </div>);
     }
 }
 
@@ -65,7 +67,10 @@ class Room extends React.Component {
                 selected={selected}
                 handler={taken ? undefined : () =>this.handleClick(pos)} />)
         }
-        return (<div key={index} className="room-row">{row}</div>);
+        return (
+            <div key={index} className="room-row">
+                {row}
+            </div>);
     }
 
     createRoom() {

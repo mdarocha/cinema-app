@@ -1,4 +1,5 @@
-﻿body {
+﻿/* Basic coloring */
+body {
     background-color: #2a2a2e;
 }
 
@@ -11,6 +12,16 @@ h1, h2, h4, h5, h6, label, hr, dt, tr, tbody, table {
     border-color: #ffffec;
 }
 
+footer {
+    color: #656565;
+}
+
+.invalid-feedback {
+    display: initial;
+}
+
+
+/* Table coloring */
 .table tr {
     border-top: 1px solid #dee2e6;
 }
@@ -19,19 +30,15 @@ h1, h2, h4, h5, h6, label, hr, dt, tr, tbody, table {
     border-top: none;
 }
 
-footer {
-    color: #656565;
-}
 
+/* Showings list */
 .movie-entry > div, h1, h2, h3 {
     color: #ffffec;
     text-align: left;
 }
 
-.invalid-feedback {
-    display: initial;
-}
 
+/* Reservation place selector */
 .room-seat {
     margin: 2px;
 
@@ -47,10 +54,15 @@ footer {
 }
 
 .room-seat::after {
-    content: "";
+    content: attr(seat-number);
     height: 0;
     padding-bottom: 100%;
     display: block;
+}
+@media (max-width: 576px) {
+    .room-seat::after {
+        font-size: 0.7rem;
+    }
 }
 
 .seat-free {
@@ -95,4 +107,14 @@ footer {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.room-row-name {
+    color: #ffffec;
+    position: absolute;
+    text-align: right;
+    right: 0;
+    margin-right: 100%;
+    width: 0;
+    height: 0;
 }
