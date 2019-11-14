@@ -120,11 +120,17 @@
   <data name="DifferentPasswords" xml:space="preserve">
     <value>Hasła różnią się</value>
   </data>
+  <data name="EmailConfirmedRequired" xml:space="preserve">
+    <value>Wymagane jest potwierdzenie adresu e-mail</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Błąd</value>
   </data>
   <data name="MinimumChars" xml:space="preserve">
     <value>{0} musi zawierać co najmniej {2} znaków</value>
+  </data>
+  <data name="NotAnEmail" xml:space="preserve">
+    <value>To nie jest adres e-mail</value>
   </data>
   <data name="RequestError" xml:space="preserve">
     <value>Wystąpił błąd</value>

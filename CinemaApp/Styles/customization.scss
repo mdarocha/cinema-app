@@ -1,0 +1,22 @@
+﻿$body-bg: #2a2a2e;
+$body-color: #ffffec;
+
+$primary: #168ab1;
+
+$custom-file-text: ( en: "hmm", pl: "Przeglądaj" );
+
+@import '~bootstrap/scss/bootstrap';
+
+hr { border-color: $body-color }
+footer { color: #656565; }
+
+.invalid-feedback { display: initial; }
+
+.table tr { border-top: 1px solid $body-color; }
+.table td { border-top: none; }
+
+.modal-body, .modal-title { color: $body-bg; }
+
+.btn {
+    cursor: pointer;
+}

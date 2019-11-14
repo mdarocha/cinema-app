@@ -1,0 +1,22 @@
+﻿.movie-poster {
+    box-shadow: 0 0 40px 5px change-color(scale-color($primary, $lightness: 15%), $alpha: 0.7);
+    z-index: 1;
+
+    padding-left: 0;
+    padding-right: 0;
+
+    min-height: 0; //fixes broken scaling on mobile chrome
+}
+
+.movie-text {
+    z-index: 2;
+}
+
+.showing-date-list {
+
+}
+
+.showing-date-button {
+    z-index: 2;
+    background-color: $body-bg;
+}

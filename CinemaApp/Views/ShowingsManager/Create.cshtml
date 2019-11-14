@@ -1,0 +1,92 @@
+﻿@model Showing
+
+@{
+    ViewBag.Title = Strings.Create;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h4>Seans</h4>
+    <hr />
+    <div class="form-group">
+        @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+    </div>
+    <div class="form-row">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.MovieID, "Film", htmlAttributes: new { @class = "" })
+                @Html.DropDownList("MovieID", null, htmlAttributes: new { @class = "form-control custom-select" })
+                @Html.ValidationMessageFor(model => model.MovieID, "", new { @class = "invalid-feedback" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Time, htmlAttributes: new { @class = "" })
+                @Html.TextBoxFor(model => model.Time, new { @Value = ( Model != null ? Model.Time.ToString("dd.MM.yy HH:mm") : ""), @class="form-control", id="time-picker", data_val="false"})
+                @Html.ValidationMessageFor(model => model.Time, "", new { @class = "invalid-feedback" })
+            </div>
+            <div class="form-group">
+            @{ 
+                var is2D = (Model == null) ? true : Model.Is2D;
+                var isSubtitles = (Model == null) ? true : Model.IsSubtitles; 
+            }
+               <div class="form-check form-check-inline">
+                    @if (is2D)
+                    {
+                        @Html.RadioButtonFor(model => model.Is2D, true, new { id = "2d-true", @class = "form-check-input", @checked="checked" })
+                    }
+                    else
+                    {
+                        @Html.RadioButtonFor(model => model.Is2D, true, new { id = "2d-true", @class = "form-check-input" })
+                    }
+                    @Html.Label("2d-true", Strings.Movie2D, new { @class = "form-check-label" })
+                </div>
+                <div class="form-check form-check-inline">
+                    @if (is2D)
+                    {
+                        @Html.RadioButtonFor(model => model.Is2D, false, new { id = "2d-false", @class = "form-check-input" })
+                    }
+                    else
+                    {
+                        @Html.RadioButtonFor(model => model.Is2D, false, new { id = "2d-false", @class = "form-check-input", @checked="checked" })
+                    }
+
+                    @Html.Label("2d-false", Strings.Movie3D, new { @class = "form-check-label" })
+                </div>
+
+                @Html.ValidationMessageFor(model => model.Is2D, "", new { @class = "invalid-feedback" })
+            </div>
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    @if (isSubtitles)
+                    {
+                        @Html.RadioButtonFor(model => model.IsSubtitles, true, new { id = "subs-true", @class = "form-check-input", @checked="checked" })
+                    }
+                    else
+                    {
+                        @Html.RadioButtonFor(model => model.IsSubtitles, true, new { id = "subs-true", @class = "form-check-input"})
+                    }
+
+                    @Html.Label("subs-true", Strings.Subtitles, new { @class = "form-check-label" })
+                </div>
+                <div class="form-check form-check-inline">
+                    @if (isSubtitles)
+                    {
+                        @Html.RadioButtonFor(model => model.IsSubtitles, false, new { id = "subs-false", @class = "form-check-input" })
+                    }
+                    else
+                    {
+                        @Html.RadioButtonFor(model => model.IsSubtitles, false, new { id = "subs-false", @class = "form-check-input", @checked="checked"})
+                    }
+                    @Html.Label("subs-false", Strings.Dubbing, new { @class = "form-check-label" })
+                </div>
+
+                @Html.ValidationMessageFor(model => model.Is2D, "", new { @class = "invalid-feedback" })
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <input type="submit" value="@Strings.Create" class="btn btn-primary" />
+        @Html.ActionLink("Powrót", "Index", null, new { @class = "btn btn-outline-light" })
+    </div>
+}

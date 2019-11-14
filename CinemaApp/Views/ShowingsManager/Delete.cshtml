@@ -1,0 +1,22 @@
+﻿@model CinemaApp.Models.Showing
+
+@{
+    ViewBag.Title = Strings.Delete;
+}
+
+<div class="text-center">
+    <h3>Czy na pewno chcesz usunąć ten seans?</h3>
+    <h4>@Model.Movie.Title</h4>
+    <h5>@Model.Time.ToString("HH:mm dd.MM") -
+    @Model.GetMetadataString()</h5>
+    <div>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="mt-5">
+            <p>Usunięcie seansu spowoduje anulowanie wszystkich rezerwacji na ten seans</p>
+            <input type="submit" value="@Strings.Delete" class="btn btn-danger" />
+            @Html.ActionLink(Strings.GoBack, "Index", null, new { @class="btn btn-outline-light"})
+        </div>
+    }
+    </div>
+</div>

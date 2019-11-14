@@ -1,0 +1,49 @@
+﻿@model ShowingDetailsViewModel
+
+@{
+    ViewBag.Title = Strings.Details;
+}
+<div>
+<div class="text-center">
+    @{ var showing = Model.Showing; }
+    <h4>@showing.Movie.Title</h4>
+    <h5>@showing.Time.ToString("HH:mm") -
+    @showing.EndTime.ToString("HH:mm"), @showing.Time.ToString("dddd dd.MM")</h5>
+    <h5>@showing.GetMetadataString()</h5>
+    <p>
+        @Html.ActionLink(Strings.Edit, "Edit", new { id = Model.Showing.ID }, new { @class = "btn btn-primary" })
+        @Html.ActionLink(Strings.GoBack, "Index", null, new { @class = "btn btn-outline-light" })
+    </p>
+</div>
+@if (Model.Reservations.Count() != 0)
+{
+<table class="table">
+    <tbody>
+    @foreach (var reservation in Model.Reservations)
+    {
+        <tr class="">
+            <td class="">@reservation.CinemaUser.Name @reservation.CinemaUser.Surname</td>
+            <td class="">@reservation.CinemaUser.Email</td>
+            <td class="">
+                @foreach (var place in reservation.Places)
+                {
+                    <span>@PlacePosition.PlaceName(place)</span>
+                }
+            </td>
+            <td class="ml-auto">
+                <div data-cancel-url="@Url.Action("CancelReservationAdmin", "ReservationFlow", new { id = reservation.ID })" 
+                     data-toggle="modal"
+                     data-target="#confirmationModal"
+                     class="cancel-reservation-button btn btn-sm btn-outline-danger">@Strings.CancelReservation</div>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+} else
+{
+    <h5>Brak rezerwacji</h5>
+}
+</div>
+
+@Html.Partial("_CancelReservationModal")

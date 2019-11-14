@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CinemaApp.Models
 {
-    public class Place
+    public class Place : IGenericModel
     {
         public int ID { get; set; }
         

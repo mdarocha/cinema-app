@@ -5,17 +5,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title — @Strings.AppName</title>
-    @Styles.Render("~/css")
 </head>
 <body>
-   @Html.Partial("_NavbarPartial")
+    <header>
+        @Html.Partial("_NavbarPartial")
+        <div id="reservation-flow-alerts"></div>
+        @RenderSection("alerts", required: false)
+    </header>
    <div class="container body-content mt-4">
         @RenderBody()
         <footer class="mt-4">
             <p>&copy; @DateTime.Now.Year — @Strings.AppName</p>
         </footer>
     </div>
-    @Scripts.Render("~/bundles/libs")
+    @Scripts.Render("~/bundles/app")
     @RenderSection("scripts", required: false)
 </body>
 </html>

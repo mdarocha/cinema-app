@@ -7,20 +7,28 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CinemaApp.Models;
+using CinemaApp.Resources;
+using CinemaApp.DAL;
 
 namespace CinemaApp.Controllers
 {
     [Authorize]
     public class ManageController : Controller
     {
-        CinemaDbContext storage = new CinemaDbContext();
-
         #region Constructors
+        private IUnitOfWork db;
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
         public ManageController()
         {
+            db = new UnitOfWork();
+        }
+
+        public ManageController(IUnitOfWork db)
+        {
+            this.db = db;
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -57,14 +65,25 @@ namespace CinemaApp.Controllers
         // GET: /Manage/Index
         public ActionResult Index(ManageMessageId? message)
         {
-            ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Zmieniono hasło."
-                : message == ManageMessageId.Error ? "Wystąpił błąd."
-                : "";
+            if (message.HasValue) {
+                ViewBag.StatusMessage = message == ManageMessageId.ChangePasswordSuccess ? Strings.ChangedPasswordSuccess :
+                       message == ManageMessageId.Error ? Errors.RequestError : 
+                       message == ManageMessageId.ChangeDataSuccess ? Strings.ChangePersonalDataSuccess : "";
+                ViewBag.StatusIsError = (message == ManageMessageId.Error);
+            }
 
             var user = GetUser();
-
-            var reservations = storage.Reservations.Include("Places").Include("Showing").Where(r => r.CinemaUserID == user.Id).ToList();
+            var reservations = (db.Repo<Reservation>() as IReservationsRepo).GetReservationsForUser(user)
+                .ConvertAll(r => new ReservationViewModel
+                {
+                    ID = r.ID,
+                    Showing = r.Showing,
+                    ReservationDate = r.ReservationDate,
+                    Places = PlacePosition.FromPlaces(r.Places)
+                        .OrderBy(p => (p.y * RoomConfig.RoomWidth) + p.x)
+                        .ToList(),
+                    CancelUrl = Url.Action("CancelReservation", "ReservationFlow", new { id = r.ID }),
+                });
 
             var model = new IndexViewModel
             {
@@ -108,6 +127,41 @@ namespace CinemaApp.Controllers
             return View(model);
         }
 
+        //
+        // GET : /Manage/ChangePersonalData
+        public ActionResult ChangePersonalData()
+        {
+            var user = GetUser();
+            var viewModel = new ChangePersonalDataViewModel
+            {
+                Name = user.Name,
+                Surname = user.Surname,
+            };
+
+            return View(viewModel);
+        }
+
+        //
+        // POST : /Manage/ChangePersonalData
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePersonalData(ChangePersonalDataViewModel model)
+        {
+            var user = GetUser();
+            if (ModelState.IsValid)
+            {
+                user.Name = model.Name;
+                user.Surname = model.Surname;
+
+                UserManager.Update(user);
+
+                return RedirectToAction("Index", new { Message = ManageMessageId.ChangeDataSuccess });
+            }
+
+            return RedirectToAction("Index", new { Message = ManageMessageId.Error });
+        }
+
+
 #region Pomocnicy
         // Służy do ochrony XSRF podczas dodawania logowań zewnętrznych
         private const string XsrfKey = "XsrfId";
@@ -146,6 +200,7 @@ namespace CinemaApp.Controllers
         public enum ManageMessageId
         {
             ChangePasswordSuccess,
+            ChangeDataSuccess,
             Error
         }
 

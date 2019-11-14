@@ -9,6 +9,7 @@
             <a class="nav-item nav-link" href="@Url.Action("Index", "Movies")">@Strings.MoviesList</a>
         </div>
         <div class="navbar-nav">
+            @Html.Partial("_AdminLinkPartial")
             @Html.Partial("_LoginPartial")
         </div>
     </div>

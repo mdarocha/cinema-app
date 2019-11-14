@@ -1,0 +1,22 @@
+﻿<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel">@Strings.CancelReservation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Zamknij">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    @(ViewBag.ModalBody ?? "Czy na pewno chcesz anulować rezerwację?")
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Nie</button>
+                <button id="confirm-cancel-button" type="button" class="btn btn-danger">Tak</button>
+            </div>
+        </div>
+    </div>
+</div>
+
