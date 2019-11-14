@@ -1,0 +1,21 @@
+﻿@import "./customization.scss";
+@import "./place_selector.scss";
+@import "./showings.scss";
+@import "./alerts.scss";
+
+body {
+    min-width: 320px;
+}
+
+nav {
+    box-shadow: 0 2px 10px 1px change-color($primary, $alpha: 0.7);
+}
+
+.daterangepicker {
+    color: $body-bg !important;
+}
+
+.no-reservations-info {
+    font-style: italic;
+    color: $gray-600;
+}

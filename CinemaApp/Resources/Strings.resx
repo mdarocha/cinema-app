@@ -124,7 +124,10 @@
     <value>ExampleCinema</value>
   </data>
   <data name="CancelReservation" xml:space="preserve">
-    <value>Anuluj</value>
+    <value>Anuluj rezerwację</value>
+  </data>
+  <data name="ChangedPasswordSuccess" xml:space="preserve">
+    <value>Zmieniono hasło</value>
   </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Zmień hasło</value>
@@ -179,5 +182,74 @@
   </data>
   <data name="Surname" xml:space="preserve">
     <value>Nazwisko</value>
+  </data>
+  <data name="AdminPanel" xml:space="preserve">
+    <value>Panel administracyjny</value>
+  </data>
+  <data name="Dubbing" xml:space="preserve">
+    <value>Dubbing</value>
+  </data>
+  <data name="Movie2D" xml:space="preserve">
+    <value>2D</value>
+  </data>
+  <data name="Movie3D" xml:space="preserve">
+    <value>3D</value>
+  </data>
+  <data name="Movies" xml:space="preserve">
+    <value>Filmy</value>
+  </data>
+  <data name="Subtitles" xml:space="preserve">
+    <value>Napisy</value>
+  </data>
+  <data name="ConfirmEmail" xml:space="preserve">
+    <value>Potwierdź adres e-mail</value>
+  </data>
+  <data name="ConfirmEmailSuccess" xml:space="preserve">
+    <value>Potwierdzono adres e-mail</value>
+  </data>
+  <data name="RegisterSuccessMessage" xml:space="preserve">
+    <value>Zarejestrowano pomyślnie. Na podany e-mail wysłano link potwierdzający. Kliknij w niego, aby zakończyć rejestracje.</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Resetuj</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Zresetuj hasło</value>
+  </data>
+  <data name="ResetPasswordMessage" xml:space="preserve">
+    <value>Sprawdź pocztę e-mail, aby zresetować hasło</value>
+  </data>
+  <data name="ResetPasswordSuccess" xml:space="preserve">
+    <value>Zresetowano hasło</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Szczegóły</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
+  </data>
+  <data name="NoShowings" xml:space="preserve">
+    <value>Brak seansów</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="ChangePersonalData" xml:space="preserve">
+    <value>Zmień nazwę</value>
+  </data>
+  <data name="ChangePersonalDataSuccess" xml:space="preserve">
+    <value>Zmieniono nazwę</value>
+  </data>
+  <data name="GoBack" xml:space="preserve">
+    <value>Powrót</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Zapisz</value>
   </data>
 </root>

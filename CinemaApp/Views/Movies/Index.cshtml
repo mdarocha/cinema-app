@@ -3,7 +3,7 @@
     ViewBag.Title = Strings.MoviesList;
 }
 
-<div class="row mb-3 mr-1 ml-1">
+@*<div class="showing-date-list row mb-3 mb-md-5 mr-1 ml-1">
 @{
     var date = DateTime.Now.Date;
     const int num_of_buttons = 7;
@@ -11,26 +11,26 @@
 
 @for(int i = 0; i < num_of_buttons; i++)
 {
-    var day_of_week = date.DayOfWeek;
-    var day_name = DateTimeFormatInfo.CurrentInfo.GetDayName(day_of_week);
-    day_name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(day_name);
+    var button_string = date.ToString("dddd\n dd.MM");
 
-    @Ajax.ActionLink(day_name, "List", new { day = i },
+    @Ajax.ActionLink(button_string, "List", new { day = i },
             new AjaxOptions
             {
                 UpdateTargetId = "movieList",
                 InsertionMode = InsertionMode.Replace,
                 HttpMethod = "GET",
             },
-            new { @class = "btn btn-outline-info mr-1 mr-md-3 mt-1" });
+            new { @class = "showing-date-button btn btn-outline-info mr-1 mr-md-3 mt-1" });
 
     date = date.AddDays(1);
 }
-</div>
-<div class="row" id="movieList">
+</div>*@
+@Html.React("DayPicker", new { sourceUrl = Url.Action("List")})
+<div class="mt-4" id="movieList">
     @{Html.RenderAction("List");}
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/ajax")
+    @Scripts.Render("~/bundles/dayPicker")
+    @Html.ReactInitJavaScript()
 }

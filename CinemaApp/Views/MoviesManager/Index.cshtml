@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Movie>
+
+@{
+    ViewBag.Title = Strings.Movies;
+}
+
+<div>
+<p>
+    @Html.ActionLink(Strings.Create, "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tbody>
+    @foreach (var item in Model) {
+    <tr>
+        <td class="col-md-3">
+            <img class="img-fluid" src="@Url.Content(item.PosterUrl)"/>
+        </td>
+        <td>
+            <p><span class="font-weight-bold">@item.Title</span><span class="ml-1">@item.Runtime min</span></p>
+            <p>@item.Description</p>
+        </td>
+        <td>
+            @Html.ActionLink(Strings.Edit, "Edit", new { id=item.ID }, new { @class="btn btn-sm btn-outline-light mb-1"})
+            @Html.ActionLink(Strings.Delete, "Delete", new { id=item.ID }, new { @class="btn btn-sm btn-outline-danger mb-1"})
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>
+</div>

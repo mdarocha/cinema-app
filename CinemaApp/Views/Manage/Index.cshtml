@@ -2,35 +2,65 @@
 @{
     ViewBag.Title = Strings.ManageAccount;
 }
+
+@section Alerts {
+    @if (!String.IsNullOrEmpty(ViewBag.StatusMessage)) {
+        var alert_style = ViewBag.StatusIsError ? "alert-danger" : "alert-success";
+        <div class="navbar-alert navbar-alert-animate alert @alert_style">@ViewBag.StatusMessage</div>
+    } 
+}
+
 <div>
-    <p class="text-success">@ViewBag.StatusMessage</p>
     <h4>@Model.Name @Model.Surname</h4>
     <hr />
-
     @Html.ActionLink(Strings.ChangePassword, "ChangePassword", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink(Strings.ChangePersonalData, "ChangePersonalData", null, new { @class ="btn btn-primary"})
 </div>
 <div class="reservation-history mt-3">
     <h5 class="">@Strings.OrderHistory</h5>
+    @if (Model.Reservations.Count != 0)
+    {
     <div class="">
         <table class="mt-3 table">
             <tbody>
-            @foreach(var reservation in Model.Reservations)
+            @foreach (var reservation in Model.Reservations)
             {
-                <tr class="d-flex flex-row">
+                <tr class="">
+                    <td>@reservation.ID</td>
                     <td class="font-weight-bold">@reservation.Showing.Movie.Title</td>
-                    <td>@reservation.Showing.Time.ToString("HH:mm, dddd dd MMM")</td>
+                    <td>@reservation.Showing.GetMetadataString()
+                    - @reservation.Showing.Time.ToString("HH:mm, dddd dd MMM")</td>
                     <td class="">
-                        @foreach (var place in reservation.Places)
+                        @{
+                            List<String> places = reservation.Places
+                                .ConvertAll(p => PlacePosition.PlaceName(p));
+                        }
+
+                        @foreach (var place in places)
                         {
-                            <span>@place.x,@place.y</span>
+                            <span>@place</span>
                         }
                     </td>
                     <td class="ml-auto">
-                        <a href="#" class="btn btn-sm btn-outline-danger">@Strings.CancelReservation</a>
+                        <div data-cancel-url="@Url.Encode(reservation.CancelUrl)" 
+                             data-toggle="modal"
+                             data-target="#confirmationModal"
+                             class="cancel-reservation-button btn btn-sm btn-outline-danger">@Strings.Cancel</div>
                     </td>
                 </tr>
             }
             </tbody>
         </table>
     </div>
+    } else
+    {
+        <h5 class="no-reservations-info">Brak rezerwacji</h5>
+    }
 </div>
+
+@Html.Partial("_CancelReservationModal")
+
+@section Scripts{
+    @Scripts.Render("~/bundles/reservationList")
+    @Html.ReactInitJavaScript()
+}

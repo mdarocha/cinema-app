@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using CinemaApp.Models;
+using CinemaApp.DAL;
 
 namespace CinemaApp
 {
@@ -18,8 +19,7 @@ namespace CinemaApp
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Dołącz tutaj usługę poczty e-mail, aby wysłać wiadomość e-mail.
-            return Task.FromResult(0);
+            return new MailSender().SendIdentityMessage(message);
         }
     }
 

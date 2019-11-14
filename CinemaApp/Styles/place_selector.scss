@@ -1,0 +1,87 @@
+﻿$seat-free-color: #228113;
+$seat-selected-color: #cc1212;
+$seat-taken-color: #717171;
+$text-color: #111;
+
+.room-seat {
+    margin: 2px;
+
+    display: inline-block;
+    position: relative;
+
+    max-width: 50px;
+    max-height: 50px;
+
+    width: 100%;
+
+    text-align: center;
+    font-size: 1rem;
+
+    @include media-breakpoint-down(sm) {
+        margin: 1px;
+        font-size: 0.7rem;
+    }
+
+    @include media-breakpoint-up(md) {
+        font-size: 1.3rem;
+    }
+}
+
+.room-seat::before {
+    position: absolute;
+    right: 0;
+    margin-right: 100%;
+    padding-right: 5px;
+
+    content: attr(seat-row);
+    color: $body-color;
+    text-align: right;
+}
+
+.room-seat::after {
+    content: attr(seat-number);
+    height: 0;
+    padding-bottom: 100%;
+    display: block;
+}
+
+.seat-free {
+    background-color: $seat-free-color;
+    box-shadow: 0 0 3px 1px change-color($seat-free-color, $alpha: 0);
+    transition: background-color, box-shadow 0.1s ease-in-out 0s;
+    color: rgba(0,0,0,0);
+}
+
+    .seat-free:hover {
+        background-color: #2ba718;
+        box-shadow: 0 0 3px 1px change-color($seat-free-color, $alpha: 0.4);
+        cursor: pointer;
+        color: color-yiq($seat-free-color);
+    }
+
+.seat-taken {
+    background-color: $seat-taken-color;
+    color: rgba(0,0,0,0);
+}
+
+.seat-selected {
+    background-color: $seat-selected-color;
+    color: color-yiq($seat-selected-color);
+    box-shadow: 0 0 3px 1px change-color($seat-selected-color, $alpha: 0.5);
+    transition: background-color, box-shadow 0.1s ease-in-out 0s;
+}
+
+    .seat-selected:hover {
+        background-color: #ff0d0d;
+        box-shadow: 0 0 5px 2px change-color($seat-selected-color, $alpha: 0.8);
+        cursor: pointer;
+    }
+
+.room-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    user-select: none;
+}

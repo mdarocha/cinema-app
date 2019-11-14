@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using CinemaApp.Resources;
 
 namespace CinemaApp.Models
 {
@@ -11,7 +13,16 @@ namespace CinemaApp.Models
         public string Surname { get; set; }
         public string Email { get; set; }
 
-        public List<Reservation> Reservations { get; set; }
+        public List<ReservationViewModel> Reservations { get; set; }
+    }
+
+    public class ReservationViewModel
+    {
+        public int ID { get; set; }
+        public Showing Showing { get; set; }
+        public DateTime ReservationDate { get; set; }
+        public List<PlacePosition> Places { get; set; }
+        public string CancelUrl { get; set; }
     }
 
     public class ChangePasswordViewModel
@@ -31,5 +42,16 @@ namespace CinemaApp.Models
         [Display(Name = "Potwierdź nowe hasło")]
         [Compare("NewPassword", ErrorMessage = "Nowe hasło i potwierdzenia hasła nie są zgodne.")]
         public string ConfirmPassword { get; set; }
+    }
+
+    public class ChangePersonalDataViewModel
+    {
+        [Required]
+        [Display(ResourceType =typeof(Strings), Name ="Name")]
+        public string Name { get; set; }
+
+        [Required]
+        [Display(ResourceType =typeof(Strings), Name ="Surname")]
+        public string Surname { get; set; }
     }
 }

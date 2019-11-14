@@ -1,0 +1,26 @@
+﻿@model CinemaApp.Models.Movie
+
+@{
+    ViewBag.Title = Strings.Delete;
+}
+
+<div class="text-center">
+    <h3 class="mb-3">Czy na pewno chcesz usunąć ten film?</h3>
+    <div class="row">
+        <div class="col-md-3">
+            <img class="img-fluid movie-poster" src="@Url.Content(Model.PosterUrl)" />
+        </div>
+        <div class="col text-left">
+            <h5>@Model.Title</h5>
+            <p>@Model.Description</p>
+        </div>
+    </div>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="mt-5">
+            <p>Usunięcie filmu spowoduje anulowanie wszystkich seansów dla tego filmu</p>
+            <input type="submit" value="@Strings.Delete" class="btn btn-danger" />
+            @Html.ActionLink(Strings.GoBack, "Index", null, new { @class = "btn btn-outline-light" })
+        </div>
+    }
+</div>

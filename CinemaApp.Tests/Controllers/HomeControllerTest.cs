@@ -13,7 +13,7 @@ namespace CinemaApp.Tests.Controllers
     public class HomeControllerTest
     {
         [TestMethod]
-        public void Index()
+        public void TestIndex()
         {
             // Arrange
             HomeController controller = new HomeController();

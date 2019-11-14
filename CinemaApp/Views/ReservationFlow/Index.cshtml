@@ -5,13 +5,10 @@
 }
 
 <div id="place-selector" class="content">
-    @Html.React("Room", Model)
+    @Html.React("ReservationFlow", Model)
 </div>
 
 @section Scripts {
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-
-    @Scripts.Render("~/Scripts/cinema/place_selector.jsx")
+    @Scripts.Render("~/bundles/reservationFlow")
     @Html.ReactInitJavaScript()
 }

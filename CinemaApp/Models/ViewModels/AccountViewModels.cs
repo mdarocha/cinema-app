@@ -8,7 +8,7 @@ namespace CinemaApp.Models
     {
         [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="RequiredMaleForm")]
         [Display(ResourceType = typeof(Strings), Name = "Email")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="NotAnEmail")]
         public string Email { get; set; }
     }
 
@@ -16,7 +16,7 @@ namespace CinemaApp.Models
     {
         [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="RequiredMaleForm")]
         [Display(ResourceType = typeof(Strings), Name = "Email")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="NotAnEmail")]
         public string Email { get; set; }
 
         [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="Required")]
@@ -41,7 +41,7 @@ namespace CinemaApp.Models
         public string Surname { get; set; }
 
         [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="RequiredMaleForm")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="NotAnEmail")]
         [Display(ResourceType = typeof(Strings), Name = "Email")]
         public string Email { get; set; }
 
@@ -60,7 +60,7 @@ namespace CinemaApp.Models
     public class ResetPasswordViewModel
     {
         [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="RequiredMaleForm")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="NotAnEmail")]
         [Display(ResourceType = typeof(Strings), Name = "Email")]
         public string Email { get; set; }
 
@@ -81,7 +81,7 @@ namespace CinemaApp.Models
     public class ForgotPasswordViewModel
     {
         [Required(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="RequiredMaleForm")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessageResourceType =typeof(Errors), ErrorMessageResourceName ="NotAnEmail")]
         [Display(ResourceType = typeof(Strings), Name = "Email")]
         public string Email { get; set; }
     }

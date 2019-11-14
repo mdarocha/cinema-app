@@ -14,7 +14,8 @@ namespace CinemaApp
             JsEngineSwitcher.Current.EngineFactories.AddV8();
 
             ReactSiteConfiguration.Configuration
-                .AddScript("~/Scripts/cinema/place_selector.jsx");
+                .AddScriptWithoutTransform("~/dist/reservationFlow.bundle.js")
+                .AddScriptWithoutTransform("~/dist/dayPicker.bundle.js");
 		}
 	}
 }

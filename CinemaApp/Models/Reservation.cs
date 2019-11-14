@@ -7,7 +7,7 @@ using System.Web;
 
 namespace CinemaApp.Models
 {
-    public class Reservation
+    public class Reservation : IGenericModel
     {
         public int ID { get; set; }
 

@@ -5,8 +5,9 @@ namespace CinemaApp.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
     using CinemaApp.Models;
+    using CinemaApp.DAL;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CinemaApp.Models.CinemaDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<CinemaDbContext>
     {
         public Configuration()
         {
@@ -20,7 +21,7 @@ namespace CinemaApp.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-            for (int i = 0; i < 10; i++)
+            /*for (int i = 0; i < 10; i++)
             {
                 var movie = new Movie
                 {
@@ -38,15 +39,19 @@ namespace CinemaApp.Migrations
                     {
                         Movie = movie,
                         Time = date,
+                        IsSubtitles = true,
+                        Is2D = true,
                     });
                     context.Showings.AddOrUpdate(x => x.ID, new Showing
                     {
                         Movie = movie,
                         Time = date.AddHours(2),
+                        IsSubtitles = false,
+                        Is2D = false,
                     });
                     date = date.AddDays(1);
                 }
-            } 
+            } */
         }
     }
 }
