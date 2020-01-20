@@ -38,7 +38,7 @@ namespace CinemaApp
             message.From = new MailAddress(config["SmtpEmail"]);
 
             SmtpClient client = new SmtpClient(config["SmtpHost"], int.Parse(config["SmtpPort"]));
-            NetworkCredential credential = new NetworkCredential(config["SmtpEmail"], config["SmtpPassword"]);
+            NetworkCredential credential = new NetworkCredential(config["SmtpUser"], config["SmtpPassword"]);
             client.Credentials = credential;
             client.EnableSsl = false;
             client.Send(message);
