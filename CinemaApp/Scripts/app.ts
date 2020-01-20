@@ -9,7 +9,7 @@ import { show_alert } from "./show_alert";
 
 $("#confirmationModal").on('show.bs.modal', function (e) {
     let button = $(e.relatedTarget);
-    let cancelUrl = button.data("cancel-url");
+    let cancelUrl = window.location.origin + "/" + button.data("cancel-url");
     $(this).find("#confirm-cancel-button").click(function () {
         $.post(cancelUrl, {}, function (data) {
             if (data.success) {
