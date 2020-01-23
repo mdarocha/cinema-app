@@ -1,5 +1,5 @@
 # cinema-app
-Projekt PAI
+A simple cinema management application.
 
 ## Installation
 
